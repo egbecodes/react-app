@@ -1,23 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('debug') {
-            steps {
-                script {
-                    echo 'Running gradle debug'
-                    sh 'chmod +x gradlew'
-                    sh 'ls -lrt'
-                    sh 'pwd'
-                    sh './gradlew properties -q'
-                    def version = sh (
-                        script: "./gradlew properties -q | grep \"version:\" | awk '{print \$2}'",
-                        returnStdout: true
-                    ).trim()
-                    sh "echo Building project in version: $version"
-
-                }
-            }
-        }
         stage('Build') {
             steps {
                 echo 'Running build automation'

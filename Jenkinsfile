@@ -4,6 +4,8 @@ pipeline {
         stage('debug') {
             steps {
                 script {
+                    echo 'Running gradle debug'
+                    sh 'chmod +x gradlew'                    
                     def version = sh (
                         script: "./gradlew properties -q | grep \"version:\" | awk '{print \$2}'",
                         returnStdout: true

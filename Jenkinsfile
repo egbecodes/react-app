@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Build React App') {
             steps {
                 echo 'Running build automation'
                 sh 'chmod +x gradlew'

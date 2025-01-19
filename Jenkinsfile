@@ -32,7 +32,7 @@ pipeline {
                      docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_login') {
                     // echo 'docker tag my-image oashu/apps_repo:my-tag'
                         app.push("${env.BUILD_NUMBER}")
-                        app.push("oashu/react-app")
+                        app.push("latest")
                      }
                 }
             }

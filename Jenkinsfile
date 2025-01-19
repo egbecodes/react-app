@@ -30,6 +30,7 @@ pipeline {
                 script {
                     echo '$DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
                     // docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_login') {
+                    // echo 'docker tag my-image oashu/apps_repo:my-tag'
                         app.push("${env.BUILD_NUMBER}")
                         app.push("oashu/apps_repo:wessamabdelwahab/react-app")
                     // }

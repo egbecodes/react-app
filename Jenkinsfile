@@ -31,7 +31,7 @@ pipeline {
                     echo '$DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
                     // docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_login') {
                         app.push("${env.BUILD_NUMBER}")
-                        app.push("latest")
+                        app.push("wessamabdelwahab/react-app:latest")
                     // }
                 }
             }

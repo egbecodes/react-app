@@ -15,7 +15,7 @@ pipeline {
             }
             steps {
                 script {
-                    app = docker.build("wessamabdelwahab/react-app")
+                    app = docker.build("oashu/react-app")
                     app.inside {
                         sh 'echo $(curl localhost:1233)'
                     }
@@ -28,12 +28,12 @@ pipeline {
             }
             steps {
                 script {
-                    echo '$DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
-                    // docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_login') {
+                // echo '$DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
+                     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_login') {
                     // echo 'docker tag my-image oashu/apps_repo:my-tag'
                         app.push("${env.BUILD_NUMBER}")
-                        app.push("oashu/apps_repo:wessamabdelwahab/react-app")
-                    // }
+                        app.push("oashu/react-app")
+                     }
                 }
             }
         }
